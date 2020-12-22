@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>
+            Interactive
+        </title>
+        <script>
+            let counter = 0;
+            function increment()
+            {
+                counter++;
+                document.querySelector('#result').innerHTML = counter;
+            }
+            
+            function blink()
+            {
+                let body = document.querySelector('table');
+                if (body.style.visibility === 'hidden')
+                {
+                    body.style.visibility = 'visible';
+                }
+                
+                else
+                {
+                    body.style.visibility = 'hidden';
+                }
+            }
+            window.setInterval(blink, 500);
+            
+            function greet()
+            {
+                let name = document.querySelector('#name').value;
+                if (name === '')
+                {
+                    name = 'World';
+                }
+                
+                document.querySelector('#result').innerHTML = 'Hello, '+name+'!';
+            }
+        </script>
+    </head>
+    <body>
+        <p align="center"><a href="webpage/geolocation.html">Click here to get your geolocation</a></p>
+        <hr>
+        <p>Count how many times you tap the button</p>
+        <form onsubmit="increment(); return false;">
+            <input type="submit" value="Count">
+        </form>
+        <div id="result">
+            0
+        </div>
+        <hr>
+        <p>Search something on google!</p>
+        <form action="https://www.google.com/search" method="get">
+            <input name="q" type="text">
+            <input type="submit" value="Search">
+        </form>
+        <hr>
+        <form onsubmit="greet(); return false;">
+            <input type="text" id="name">
+            <input type="submit">
+        </form>
+        <hr>
+        <center>
+            <table border = "0" cellspacing = "0" width = "90%">
+                <tr height="55" valign="top" width="50%">
+                    <td>
+                       <li><a href="cs50.html">CS50</a></li>
+                    </td>
+                    <td>
+                        <li><a href="index.html">Main</a></li>
+                    </td>
+                    <td>
+                        <li><a href="image.html">Images</a></li>
+                    </td>
+                </tr>
+            </table>
+        </center>
+        <hr>
+        <footer height="55" valign="top" width="50%">
+            <dt>
+                <font size="1">
+                    Felipe Fraxe &reg;
+                </font>
+            </dt>
+        </footer>
+    </body>
+</html>
