@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    Shop
+
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead >
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>In Stock</th>
+                <th>Add to cart</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product["name"] }}</td>
+                    <td>{{ product["category"] }}</td>
+                    <td>{{ product["price"] }}</td>
+                    <td>{{ product["amount"] }}</td>
+                    <td>
+                        <form action="/cart" method="post">
+                        <input name="id" type="hidden" value="{{ product["id"] }}">
+                        <input type="submit" value="Add to Cart">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

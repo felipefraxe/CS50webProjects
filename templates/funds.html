@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    Add Funds
+
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead >
+            <tr>
+                <th>Name</th>
+                <th>Funds available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ user[0]["name"] }}</td>
+                <td>{{ user[0]["cash"] }}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <form action="/funds" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="funds" placeholder="Funds" type="text">
+        </div>
+        <button class="btn btn-primary" type="Add">Add</button>
+    </form>
+{% endblock %}

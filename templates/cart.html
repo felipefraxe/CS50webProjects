@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    Cart
+
+{% endblock %}
+
+{% block main %}
+
+     <table class="table table-striped">
+        <thead >
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product["name"] }}</td>
+                    <td>{{ product["category"] }}</td>
+                    <td>{{ product["amount"] }}</td>
+                    <td>{{ product["price"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <td>
+                    <form action="/buy" method="post">
+                    <input type="submit" value="Buy">
+                    </form>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}
