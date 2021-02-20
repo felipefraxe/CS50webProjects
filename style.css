@@ -1,0 +1,57 @@
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+#appbar {
+    margin: 25px 35px;
+    color: #d93025;
+    font-size: 20px;
+    font-family: arial;
+}
+
+#appbar > h4 {
+    margin-left: 10px;
+}
+
+#input-text {
+    max-width: 584px;
+}
+
+#input-image {
+    text-align: center;
+}
+
+#logo-subtext {
+    color: #4285f4;
+    font: 16px/16px roboto-regular, arial;
+    right: 538px;
+    bottom: 40px;
+    position: relative;
+    white-space: nowrap;
+    display: block;
+    text-align: end;
+}
+
+.row, #main-logo {
+    padding: 2%;
+}
+
+#specification-header {
+    color: #777;
+    font-family: arial;
+    font-size: 100%;
+}
+
+.specification {
+    font-size: 11px;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}
