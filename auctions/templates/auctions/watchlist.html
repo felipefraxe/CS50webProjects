@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Watchlist
+{% endblock %}
+
+{% block body %}
+    <hr>
+    <div class="container-fluid">
+        {% if not items %}
+            <h2>Your Watchlist is empty</h2>
+        {% else %}
+            <h2>Your Watchlist</h2>
+            <div class="row">
+                {% for item in items %}
+                    <div class="col-sm-3">
+                        <div class="card bg-light" style="width: 17rem;">
+                            <a href="{% url 'auctions:item' item.id %}" class="card-link">
+                                <img src="{{ item.image_url }}" class="card-img-top img-fluid" alt="{{ item.title }} image">
+                                <div class="card-body text-body">
+                                    <h5 class="card-title">{{ item.title }}</h5>
+                                    <p class="card-text">{{ item.description }}</p> 
+                                    {% if item.current_price == None %}
+                                        <p>Starting price - ${{ item.start_price }}</p>
+                                    {% else %}
+                                        <p>Current Bid - ${{ item.current_price }}</p>
+                                    {% endif %}
+                                    <div class="text-center">
+                                        <button class="btn btn-primary">View Product Page</button>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center text-muted">
+                                    <small><em>Listed in {{ item.date }}</em></small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
