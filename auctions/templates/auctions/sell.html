@@ -1,0 +1,49 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    New Listing
+{% endblock %}
+
+{% block body %}
+    
+    <hr>
+    {% if invalid %}
+        <div class="alert alert-danger" role="alert">
+            Ivalid input! Make sure to fill every field.
+        </div>
+    {% endif %}
+    <form action="{% url 'auctions:sell' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <label>Category</label>
+            <select class="form-control" name="category" required>
+                <option selected disabled>Select category</option>
+                {% for option in  options %}
+                    <option value="{{ option.id }}">{{ option.category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label>Title</label>
+            <input class="form-control" name="title" autocomplete="off" required>
+        </div>
+        
+        <div>
+            <label>Image URL</label>
+            <input class="form-control" name="image" autocomplete="off" required>
+        </div>
+
+        <div>
+            <label>Description</label>
+            <input class="form-control" name="description" autocomplete="off" required>
+        </div>
+
+        <label>Price</label>
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="number" class="form-control" name="price" step="0.01" min=0.01 required>
+        </div>
+        <br><button class="btn btn-primary">List Item</button>
+    </form>
+{% endblock %}
