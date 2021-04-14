@@ -1,0 +1,41 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col-3"></div>
+                <div id="profile-view" class="col-lg-6 mb-3"></div>
+                <div class="col-3"></div>
+                
+                <div id="div-post-view1" class="col-3"></div>
+                <div id="write-post-view" class="col-lg-6 mb-3">
+                    <form id="post-form" class="row">
+                        <textarea id="post-body" class="form-control" rows="3" placeholder="What´s happening?"></textarea>
+                        <div class="col-11"></div>
+                        <button id="post-button" class="btn btn-primary">Post</button>
+                    </form>
+                </div>
+                <div id="div-post-view2" class="col-3"></div>
+
+                <div class="col-3"></div>
+                <div id="posts-view" class="col-lg-6"></div>
+                <div class="col-3"></div>
+                
+                <div class="col-5"></div>
+                <nav id="paginator" class="col-6">
+                    <ul id="ul-paginator" class="pagination">
+                    </ul>
+                </nav>
+                <div class="col-1"></div>
+            </div>
+
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/network.js' %}"></script>
+{% endblock %}
